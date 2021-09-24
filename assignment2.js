@@ -1,0 +1,199 @@
+const arr = [1,2,3];
+
+// FOR EACH //
+Array.prototype.myEach = function(callbackFn) {
+    for(let i = 0; i < this.length; i++){
+        if(this[i] == undefined)
+            continue;
+        //element
+        //element, index
+        //element, index, and array
+        callbackFn(this[i],i,this);
+    }
+
+
+};
+/*
+console.log("myEach:")
+arr.myEach( x => console.log(x));
+
+//returns element and index
+console.log("myEach:")
+arr.myEach( (x,i) => console.log(x,i));
+
+console.log("forEach:")
+arr.forEach( x => console.log(x));
+
+const isEven = (num) => console.log(num % 2 == 0);
+arr.myEach(isEven);
+*/
+
+// MAP //
+Array.prototype.myMap = function() {
+
+};
+
+// FILTER //
+Array.prototype.myFilter = function() {
+
+};
+
+// SOME //
+Array.prototype.mySome = function(callbackFn) {
+    for(let i = 0; i < this.length ; i++)
+    {
+        if(callbackFn(this[i]))
+        {
+            return true;
+        }
+        return false;
+    }
+
+};
+
+const even = (element) => element % 2 === 0;
+console.log(arr.some(even));
+
+// EVERY //
+Array.prototype.myEvery = function() {
+
+};
+
+// REDUCE //
+Array.prototype.myReduce = function() {
+
+};
+
+// INCLUDES //
+Array.prototype.myIncludes = function(element, start) {
+    if(start != undefined)
+    {
+        //console.log(start);
+        for(let i = start; i < this.length; i++)
+        {
+            if(this[i] == element)
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+    else
+    {
+        //console.log("missing");
+        for(let i = 0; i < this.length; i++)
+        {
+            if(this[i] == element)
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+
+};
+/*
+let arr1 = [1,1,2,2,3,4,5];
+console.log(arr1.myIncludes(4));
+console.log(arr1.includes(4));
+
+console.log(arr1.myIncludes(69));
+console.log(arr1.includes(69));
+
+console.log(arr1.myIncludes(1,1));
+console.log(arr1.includes(1,1));
+
+console.log(arr1.myIncludes(1,2));
+console.log(arr1.includes(1,2));
+*/
+
+// INDEXOF //
+Array.prototype.myIndexOf = function(element, start) {
+    if(start != undefined)
+    {
+        //console.log(start);
+        for(let i = start; i < this.length; i++)
+        {
+            if(this[i] == element)
+            {
+                return i;
+            }
+
+        }
+        return -1;
+    }
+    else
+    {
+        //console.log("missing");
+        for(let i = 0; i < this.length; i++)
+        {
+            if(this[i] == element)
+            {
+                return i;
+            }
+
+        }
+        return -1;
+    }
+
+    
+
+};
+/*
+const arr2 = [1,1,2,2,3,4,5];
+console.log(arr2.myIndexOf(4));
+console.log(arr2.indexOf(4));
+
+console.log(arr2.myIndexOf(69));
+console.log(arr2.indexOf(69));
+
+console.log(arr2.myIndexOf(1,1));
+console.log(arr2.indexOf(1,1));
+
+console.log(arr2.myIndexOf(1,2));
+console.log(arr2.indexOf(1,2));
+*/
+// PUSH //
+Array.prototype.myPush = function(...args) 
+{
+    let arg_i = 0;
+    let len = this.length;
+    //console.log(len +  arr.length)
+
+    for(let i = len ; i < len + args.length ; i++)
+    {
+        //console.log(i);
+        //console.log("param ",args[arg_i]);
+        //console.log("arr",this[arg_i]);
+        this[i] = args[arg_i];
+        arg_i++;
+
+    }
+    return this.length;
+
+};
+/*
+arr.myPush(4,5,6,9);
+console.log(arr);
+
+const arr1 = [1,2,3]
+arr1.push(4,5,6,9);
+console.log(arr1);
+*/
+// LASTINDEXOF //
+Array.prototype.myLastIndexOf = function() {
+
+};
+
+// KEYS //
+Object.grabKeys = function() {
+
+};
+
+// VALUES //
+Object.grabValues = function() {
+
+};
