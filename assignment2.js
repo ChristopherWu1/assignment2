@@ -34,9 +34,27 @@ Array.prototype.myMap = function() {
 };
 
 // FILTER //
-Array.prototype.myFilter = function() {
+Array.prototype.myFilter = function(callbackFn) {
+    const thearr = [];
+    for(let i = 0; i < this.length; i++)
+    {
+        console.log(this[i]);
+        console.log(callbackFn(this[i]));
+        if(callbackFn(this[i]))
+        {
+            thearr.push(this[i]);
+        }
+    }
+    return thearr;
 
 };
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.myFilter(word => word.length > 6);
+
+console.log(result);
+
+
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
