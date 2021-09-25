@@ -46,22 +46,43 @@ Array.prototype.mySome = function(callbackFn) {
         {
             return true;
         }
-        return false;
+        
     }
+    return false;
 
 };
 /*
 const even = (element) => element % 2 === 0;
 console.log(arr.some(even));
+console.log(arr.mySome(even));
 const arr1 = [1,3,5];
 console.log(arr1.some(even));
+console.log(arr1.mySome(even));
 */
 
+
 // EVERY //
-Array.prototype.myEvery = function() {
+Array.prototype.myEvery = function(callbackFn) {
+    for(let i = 0; i < this.length; i++)
+    {
+        if(!callbackFn(this[i]))
+        {
+            return false;
+        }
+        
+    }
+    return true;
 
 };
-
+/*
+function isBigEnough(element, index, array) {
+    return element >= 10;
+  }
+  console.log([12, 5, 8, 130, 44].myEvery(isBigEnough));   // false
+  console.log([12, 54, 18, 130, 44].myEvery(isBigEnough)); // true
+  console.log([12, 5, 8, 130, 44].every(isBigEnough));   // false
+  console.log([12, 54, 18, 130, 44].every(isBigEnough)); // true
+*/
 // REDUCE //
 Array.prototype.myReduce = function() {
 
