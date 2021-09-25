@@ -50,9 +50,12 @@ Array.prototype.mySome = function(callbackFn) {
     }
 
 };
-
+/*
 const even = (element) => element % 2 === 0;
 console.log(arr.some(even));
+const arr1 = [1,3,5];
+console.log(arr1.some(even));
+*/
 
 // EVERY //
 Array.prototype.myEvery = function() {
@@ -114,6 +117,10 @@ console.log(arr1.includes(1,2));
 Array.prototype.myIndexOf = function(element, start) {
     if(start != undefined)
     {
+        if(start < 0)
+        {
+            start = this.length + start;
+        }
         //console.log(start);
         for(let i = start; i < this.length; i++)
         {
@@ -184,9 +191,57 @@ arr1.push(4,5,6,9);
 console.log(arr1);
 */
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
+Array.prototype.myLastIndexOf = function(element, start) {
+    if(start === undefined)
+    {
+        for(let i = this.length-1; i >= 0 ; i--)
+        {
+            //console.log(element, " ", this[i]);
+            
+            if(element === this[i])
+            {
+                
+                return i;
+            }
+        }
+        return -1;
 
+    }
+    else
+    {
+        if(start < 0)
+        {
+            start = this.length + start;
+        }
+        //console.log(element, " ", this[i]);
+        for(let i = start; i >= 0 ; i--)
+        {
+            if(element === this[i])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 };
+/*
+var numbers = [2, 5, 9, 2];
+console.log(numbers.lastIndexOf(2));     // 3
+console.log(numbers.lastIndexOf(7));     // -1
+console.log(numbers.lastIndexOf(2, 3));  // 3
+console.log(numbers.lastIndexOf(2, 2));  // 0
+console.log(numbers.lastIndexOf(2, -2)); // 0
+console.log(numbers.lastIndexOf(2, -1)); // 3
+
+console.log("---------------");
+
+console.log(numbers.myLastIndexOf(2));     // 3
+console.log(numbers.myLastIndexOf(7));     // -1
+console.log(numbers.myLastIndexOf(2, 3));  // 3
+console.log(numbers.myLastIndexOf(2, 2));  // 0
+console.log(numbers.myLastIndexOf(2, -2)); // 0
+console.log(numbers.myLastIndexOf(2, -1)); // 3
+*/
 
 // KEYS //
 Object.grabKeys = function() {
