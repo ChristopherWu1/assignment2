@@ -29,9 +29,21 @@ arr.myEach(isEven);
 */
 
 // MAP //
-Array.prototype.myMap = function() {
+Array.prototype.myMap = function(callbackFn) {
+    const thearr = [];
+    for(let i = 0; i < this.length ; i++)
+    {
+        element = callbackFn(this[i]);
+        thearr.push(element);
+    }
+    return thearr;
 
 };
+/*
+const array1 = [1, 4, 9, 16];
+const map1 = array1.myMap(x => x * 2);
+console.log(map1);
+*/
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
@@ -48,12 +60,13 @@ Array.prototype.myFilter = function(callbackFn) {
     return thearr;
 
 };
+/*
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
 const result = words.myFilter(word => word.length > 6);
 
 console.log(result);
-
+*/
 
 
 // SOME //
