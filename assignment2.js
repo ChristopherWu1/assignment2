@@ -50,8 +50,9 @@ Array.prototype.myFilter = function(callbackFn) {
     const thearr = [];
     for(let i = 0; i < this.length; i++)
     {
-        console.log(this[i]);
-        console.log(callbackFn(this[i]));
+
+        //console.log(this[i]);
+        //console.log(callbackFn(this[i]));
         if(callbackFn(this[i]))
         {
             thearr.push(this[i]);
@@ -115,10 +116,41 @@ function isBigEnough(element, index, array) {
   console.log([12, 54, 18, 130, 44].every(isBigEnough)); // true
 */
 // REDUCE //
-Array.prototype.myReduce = function() {
+Array.prototype.myReduce = function(callbackFn,start) 
+{
+    if(start === undefined)
+    {
+        let val = 0;
+        for(let i = 0; i < this.length ; i++)
+        {
+            val = callbackFn(val,this[i]);
+        }
+        return val;
+    }
+    else
+    {
+        let val = start;
+        for(let i = 0; i < this.length ; i++)
+        {
+            val = callbackFn(val,this[i]);
+        }
+        return val;
+    }
+    
 
 };
+/*
+const array1 = [1, 2, 3, 4];
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
 
+// 1 + 2 + 3 + 4
+console.log(array1.myReduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.myReduce(reducer, 5));
+// expected output: 15
+*/
 // INCLUDES //
 Array.prototype.myIncludes = function(element, start) {
     if(start != undefined)
@@ -296,11 +328,54 @@ console.log(numbers.myLastIndexOf(2, -1)); // 3
 */
 
 // KEYS //
-Object.grabKeys = function() {
+Object.grabKeys = function() 
+{
+    //console.log("hi");
+    const arr = [];
+    for(const prop in this)
+    {
+        //console.log(prop);
+        arr.push(prop);
+    }
+    return arr;
 
 };
+
+
+/*
+for(const prop in student)
+{
+    console.log(prop);
+    //arr.push(prop);
+}*/
+//console.log(Object.values(student));
+
 
 // VALUES //
-Object.grabValues = function() {
+Object.grabValues = function() 
+{
+    
 
 };
+/*
+let student = { name: 'John Smith', 
+education: 'Clown College' ,
+grabValues: function() 
+{
+    //console.log("hi");
+    const arr = [];
+    for(const prop in this)
+    {
+        //console.log(this[prop]);
+        arr.push(this[prop]);
+    }
+    return arr;
+
+}
+
+}
+;
+
+
+console.log(student.grabValues());
+*/
