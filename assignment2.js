@@ -354,6 +354,14 @@ for(const prop in student)
 // VALUES //
 Object.grabValues = function() 
 {
+    //console.log("hi");
+    const arr = [];
+    for(const prop in this)
+    {
+        //console.log(this[prop]);
+        arr.push(this[prop]);
+    }
+    return arr;
     
 
 };
