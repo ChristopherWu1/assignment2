@@ -3,7 +3,7 @@ const arr = [1,2,3];
 // FOR EACH //
 Array.prototype.myEach = function(callbackFn) {
     for(let i = 0; i < this.length; i++){
-        if(this[i] == undefined)
+        if(this[i] === undefined)
             continue;
         //element
         //element, index
@@ -26,8 +26,8 @@ arr.forEach( x => console.log(x));
 
 const isEven = (num) => console.log(num % 2 == 0);
 arr.myEach(isEven);
-*/
 
+*/
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
     const thearr = [];
@@ -43,6 +43,8 @@ Array.prototype.myMap = function(callbackFn) {
 const array1 = [1, 4, 9, 16];
 const map1 = array1.myMap(x => x * 2);
 console.log(map1);
+const map2 = array1.map(x => x * 2);
+console.log(map2);
 */
 
 // FILTER //
@@ -63,12 +65,11 @@ Array.prototype.myFilter = function(callbackFn) {
 };
 /*
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-
 const result = words.myFilter(word => word.length > 6);
-
 console.log(result);
+const result2 = words.filter(word => word.length > 6);
+console.log(result2);
 */
-
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
@@ -110,6 +111,7 @@ Array.prototype.myEvery = function(callbackFn) {
 function isBigEnough(element, index, array) {
     return element >= 10;
   }
+  
   console.log([12, 5, 8, 130, 44].myEvery(isBigEnough));   // false
   console.log([12, 54, 18, 130, 44].myEvery(isBigEnough)); // true
   console.log([12, 5, 8, 130, 44].every(isBigEnough));   // false
@@ -145,20 +147,22 @@ const reducer = (previousValue, currentValue) => previousValue + currentValue;
 
 // 1 + 2 + 3 + 4
 console.log(array1.myReduce(reducer));
+console.log(array1.reduce(reducer));
 // expected output: 10
 
 // 5 + 1 + 2 + 3 + 4
 console.log(array1.myReduce(reducer, 5));
+console.log(array1.reduce(reducer, 5));
 // expected output: 15
 */
 // INCLUDES //
 Array.prototype.myIncludes = function(element, start) {
-    if(start != undefined)
+    if(start !== undefined)
     {
         //console.log(start);
         for(let i = start; i < this.length; i++)
         {
-            if(this[i] == element)
+            if(this[i] === element)
             {
                 return true;
             }
@@ -171,7 +175,7 @@ Array.prototype.myIncludes = function(element, start) {
         //console.log("missing");
         for(let i = 0; i < this.length; i++)
         {
-            if(this[i] == element)
+            if(this[i] === element)
             {
                 return true;
             }
@@ -199,7 +203,7 @@ console.log(arr1.includes(1,2));
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(element, start) {
-    if(start != undefined)
+    if(start !== undefined)
     {
         if(start < 0)
         {
@@ -208,7 +212,7 @@ Array.prototype.myIndexOf = function(element, start) {
         //console.log(start);
         for(let i = start; i < this.length; i++)
         {
-            if(this[i] == element)
+            if(this[i] === element)
             {
                 return i;
             }
@@ -221,7 +225,7 @@ Array.prototype.myIndexOf = function(element, start) {
         //console.log("missing");
         for(let i = 0; i < this.length; i++)
         {
-            if(this[i] == element)
+            if(this[i] === element)
             {
                 return i;
             }
@@ -368,6 +372,7 @@ Object.grabValues = function()
 /*
 let student = { name: 'John Smith', 
 education: 'Clown College' ,
+
 grabValues: function() 
 {
     //console.log("hi");
@@ -379,11 +384,26 @@ grabValues: function()
     }
     return arr;
 
+},
+grabKeys: function() 
+{
+    //console.log("hi");
+    const arr = [];
+    for(const prop in this)
+    {
+        //console.log(prop);
+        arr.push(prop);
+    }
+    return arr;
+
 }
 
 }
 ;
 
+//let student = { name: 'John Smith', 
+//education: 'Clown College' };
 
+console.log(student.grabKeys());
 console.log(student.grabValues());
 */
